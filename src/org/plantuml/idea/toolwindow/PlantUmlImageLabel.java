@@ -5,10 +5,11 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.ui.ColoredSideBorder;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.PopupHandler;
-import com.intellij.ui.scale.ScaleContext;
-import com.intellij.ui.scale.ScaleType;
+//import com.intellij.ui.scale.ScaleContext;
+//import com.intellij.ui.scale.ScaleType;
 import com.intellij.util.ui.ImageUtil;
 import com.intellij.util.ui.JBImageIcon;
+import com.intellij.util.ui.JBUI;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.plantuml.idea.action.context.*;
@@ -85,7 +86,7 @@ public class PlantUmlImageLabel extends JLabel {
         originalImage = imageItem.getImage();
         Image scaledImage;
 
-        ScaleContext ctx = ScaleContext.create(parent);
+        JBUI.ScaleContext ctx = JBUI.ScaleContext.create(parent);
         scaledImage = ImageUtil.ensureHiDPI(originalImage, ctx);
 //        scaledImage = ImageLoader.scaleImage(scaledImage, ctx.getScale(JBUI.ScaleType.SYS_SCALE));
 
@@ -112,7 +113,7 @@ public class PlantUmlImageLabel extends JLabel {
             Rectangle area = url.getClickArea();
 
             int tolerance = 5;
-            double scale = ctx.getScale(ScaleType.SYS_SCALE);
+            double scale = ctx.getScale(JBUI.ScaleType.SYS_SCALE);
             int x = (int) ((double) area.x / scale);
             int y = (int) (area.y / scale);
             int width = (int) ((area.width) / scale) + tolerance;

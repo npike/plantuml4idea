@@ -12,6 +12,7 @@ import com.intellij.util.ImageLoader;
 import org.apache.batik.anim.dom.SAXSVGDocumentFactory;
 import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.util.XMLResourceDescriptor;
+import org.apache.xmlgraphics.java2d.Dimension2DDouble;
 import org.intellij.images.editor.ImageDocument;
 import org.intellij.images.ui.ImageComponent;
 import org.jetbrains.annotations.NotNull;
@@ -187,7 +188,7 @@ public class PlantUmlImagePanelSvg extends JPanel implements Disposable {
         return originalImage;
     }
 
-    public static BufferedImage loadWithoutCache(@Nullable URL url, @NotNull InputStream stream, double scale, @Nullable ImageLoader.Dimension2DDouble docSize /*OUT*/) {
+    public static BufferedImage loadWithoutCache(@Nullable URL url, @NotNull InputStream stream, double scale, @Nullable Dimension2DDouble docSize /*OUT*/) {
         try {
             MyTranscoder transcoder = MyTranscoder.createImage(scale, createTranscodeInput(url, stream));
             if (docSize != null) {

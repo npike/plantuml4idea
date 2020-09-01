@@ -14,8 +14,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.ui.components.JBScrollPane;
-import com.intellij.ui.scale.ScaleContext;
-import com.intellij.ui.scale.ScaleType;
+import com.intellij.util.ui.JBUI;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.plantuml.idea.action.NextPageAction;
@@ -490,7 +489,7 @@ public class PlantUmlToolWindow extends JPanel implements Disposable {
 
     private double getSystemScale() {
         try {
-            return ScaleContext.create(imagesPanel).getScale(ScaleType.SYS_SCALE);
+            return JBUI.ScaleContext.create(imagesPanel).getScale(JBUI.ScaleType.SYS_SCALE);
         } catch (Throwable e) {
             return 1;
         }
